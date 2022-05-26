@@ -1,0 +1,122 @@
+
+@each $spacing in (0, 1, 2, 3, 4, 5, 6, auto) {
+  $value: 0;
+
+  @if type-of($spacing) == "number" {
+    $value: $spacing * 4px;
+  } @else {
+    $value: $spacing;
+  }
+
+  .m-#{$spacing} { margin: $value; }
+  .p-#{$spacing} { padding: $value; }
+
+  .ms-#{$spacing} { margin-left: $value; }
+  .px-#{$spacing} { padding-inline: $value; }
+}
+
+@each $size in (10, 20, 30, 40, 50, 60, 70, 80, 90, 100) {
+  .w-#{$size} { width: $size * 1%; }
+  .h-#{$size} { height: $size * 1%; }
+}
+
+@each $display in (none, flex, block, inline-block) {
+  .d-#{$display} {
+    display: $display;
+  }
+
+  @media (max-width: 575px) {
+    .d-xs-#{$display} {
+      display: $display;
+    }
+  }
+
+  @media (min-width: 576px) {
+    .d-sm-#{$display} {
+      display: $display;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .d-md-#{$display} {
+      display: $display;
+    }
+  }
+
+  @media (min-width: 992px) {
+    .d-lg-#{$display} {
+      display: $display;
+    }
+  }
+}
+
+@each $position in (start, flex-start, center, stretch, end, flex-end) {
+  .align-items-#{$position} {
+    align-items: $position;
+  }
+}
+
+
+$justifycontent: (flex-start, center, stretch, flex-end, space-around, space-between, space-evenly);
+@each $position in $justifycontent {
+  .justify-content-#{$position} {
+    justify-content: $position;
+  }
+}
+
+@each $position in $justifycontent {
+  @media (max-width: 575px) {
+    .justify-content-xs-#{$position} {
+      justify-content: $position;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .justify-content-md-#{$position} {
+      justify-content: $position;
+    }
+  }
+}
+
+
+
+$directions: (row, column);
+@each $direction in $directions {
+  .flex-#{$direction} {
+    flex-direction: $direction;
+  }
+}
+
+@each $direction in $directions {
+  @media (min-width: 768px) {
+    .flex-md-#{$direction} {
+      flex-direction: $direction;
+    }
+  }
+}
+
+
+$wraps: (wrap, nowrap);
+@each $wrap in $wraps {
+  @media (min-width: 768px) {
+    .flex-wrap-md-#{$wrap} {
+      flex-wrap: wrap;
+    }
+  }
+}
+
+
+$positions: (relative, absolute, fixed);
+@each $position in $positions {
+  .pos-#{$position} {
+    position: $position;
+  }
+}
+
+@each $position in $positions {
+  @media (min-width: 768px) {
+    .pos-md-#{$position} {
+      position: $position;
+    }
+  }
+}

@@ -1,0 +1,4 @@
+
+.wrapper {
+  @include contentLimit(1920px);
+}
